@@ -21,5 +21,11 @@ def delete(uid):
     del TODOS[uid]
     return deleted_todo
 
+@app.route('/read/<int:uid>')
+def read(uid):
+	if uid in TODOS:
+		return TODOS[uid]
+	return {}
+
 print("Nick was here 2021")
 print(" Dan was here 2021")
