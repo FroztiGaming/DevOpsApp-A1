@@ -21,7 +21,7 @@ def delete(uid):
     del TODOS[uid]
     return deleted_todo
 
-@app.route('/read/<int:uid>')
+@app.route('/read/<int:uid>')	
 def read(uid):
     if uid in TODOS:
         return TODOS[uid]
@@ -33,6 +33,13 @@ def update(uid, name):
         TODOS[uid]['name'] = name
         return TODOS[uid]
     return {}
+
+@app.route('/complete/<int:uid>')
+def complete(uid):
+	if uid in TODOS:
+		TODOS[uid]['done'] = True
+		return TODOS[uid]
+	return {}
 
 print("Nick was here 2021")
 print(" Dan was here 2021")
