@@ -15,11 +15,11 @@ def create(name):
     NEXT_ID += 1
     return TODOS
 
-@app.route('/clearTODOS')
-def clearTODOS():
-	TODOS.clear()
-	NEXT_ID = 0
-	return 'Cleared TODOS Dictionary'
+@app.route('/delete/<int:uid>')
+def delete(uid):
+    deleted_todo = TODOS[uid]
+    del TODOS[uid]
+    return deleted_todo
 
 print("Nick was here 2021")
 print(" Dan was here 2021")
